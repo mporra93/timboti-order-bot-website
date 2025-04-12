@@ -13,6 +13,7 @@ import Demos from "./pages/Demos";
 import DemoGastronomy from "./pages/DemoGastronomy";
 import DemoTattoos from "./pages/DemoTattoos";
 import DemoClothing from "./pages/DemoClothing";
+import ThankYou from "./pages/ThankYou";
 import Layout from "./components/Layout";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/demo-gastronomy" element={<DemoGastronomy />} />
               <Route path="/demo-tattoos" element={<DemoTattoos />} />
               <Route path="/demo-clothing" element={<DemoClothing />} />
+              <Route path="/thanks" element={<ThankYou />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>
