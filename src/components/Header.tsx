@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +57,7 @@ const Header = () => {
               )
             }
           >
-            Home
+            {t("nav.home")}
           </NavLink>
           <NavLink
             to="/pricing"
@@ -65,7 +68,7 @@ const Header = () => {
               )
             }
           >
-            Pricing
+            {t("nav.pricing")}
           </NavLink>
           <NavLink
             to="/contact"
@@ -76,7 +79,7 @@ const Header = () => {
               )
             }
           >
-            Contact
+            {t("nav.contact")}
           </NavLink>
           <NavLink
             to="/about"
@@ -87,22 +90,39 @@ const Header = () => {
               )
             }
           >
-            About Us
+            {t("nav.about")}
           </NavLink>
-          <Button asChild className="bg-timboti-red hover:bg-timboti-red/90 ml-4">
-            <NavLink to="/contact">Try it now</NavLink>
-          </Button>
+          <NavLink
+            to="/demos"
+            className={({ isActive }) =>
+              cn(
+                "text-sm font-medium hover:text-timboti-red transition-colors",
+                isActive ? "text-timboti-red" : "text-gray-700 dark:text-gray-200"
+              )
+            }
+          >
+            {t("nav.demos")}
+          </NavLink>
+          
+          <div className="flex items-center gap-2">
+            <LanguageSelector />
+            <Button asChild className="bg-timboti-red hover:bg-timboti-red/90">
+              <NavLink to="/contact">{t("nav.tryNow")}</NavLink>
+            </Button>
+          </div>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? <X /> : <Menu />}
-        </Button>
+        {/* Mobile Menu Button and Language Selector */}
+        <div className="flex items-center md:hidden gap-2">
+          <LanguageSelector />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X /> : <Menu />}
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -120,7 +140,7 @@ const Header = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Home
+            {t("nav.home")}
           </NavLink>
           <NavLink
             to="/pricing"
@@ -134,7 +154,7 @@ const Header = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Pricing
+            {t("nav.pricing")}
           </NavLink>
           <NavLink
             to="/contact"
@@ -148,7 +168,7 @@ const Header = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Contact
+            {t("nav.contact")}
           </NavLink>
           <NavLink
             to="/about"
@@ -162,11 +182,25 @@ const Header = () => {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            About Us
+            {t("nav.about")}
+          </NavLink>
+          <NavLink
+            to="/demos"
+            className={({ isActive }) =>
+              cn(
+                "px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors",
+                isActive 
+                  ? "bg-gray-100 dark:bg-gray-800 text-timboti-red" 
+                  : "text-gray-700 dark:text-gray-200"
+              )
+            }
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t("nav.demos")}
           </NavLink>
           <Button asChild className="mt-2 bg-timboti-red hover:bg-timboti-red/90">
             <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
-              Try it now
+              {t("nav.tryNow")}
             </NavLink>
           </Button>
         </nav>

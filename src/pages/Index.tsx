@@ -4,8 +4,12 @@ import { Link } from "react-router-dom";
 import Section from "@/components/Section";
 import ChatbotDemo from "@/components/ChatbotDemo";
 import { MessageSquare, Database, Workflow, MessagesSquare } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import RobotPuppyIllustration from "@/components/RobotPuppyIllustration";
 
 const Index = () => {
+  const { t } = useLanguage();
+  
   return (
     <>
       {/* Hero Section */}
@@ -14,27 +18,23 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center">
             <div className="lg:w-1/2 space-y-6 text-center lg:text-left mb-10 lg:mb-0 animate-fade-in animate-fill-both">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                A chatbot that takes<br />
-                <span className="text-timboti-red">orders</span> for your restaurant
+                {t("home.hero.title")}<br />
+                <span className="text-timboti-red">{t("home.hero.titleHighlight")}</span> {t("home.hero.subtitle")}
               </h1>
               <p className="max-w-md mx-auto lg:mx-0 text-gray-600 dark:text-gray-400 text-lg">
-                A chatbot that takes orders, organizes them for you, and keeps your restaurant running smoothly.
+                {t("home.hero.description")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button asChild size="lg" className="bg-timboti-red hover:bg-timboti-red/90">
-                  <Link to="/contact">Try it now</Link>
+                  <Link to="/contact">{t("buttons.tryNow")}</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline">
-                  <Link to="/pricing">View Pricing</Link>
+                  <Link to="/pricing">{t("buttons.viewPricing")}</Link>
                 </Button>
               </div>
             </div>
             <div className="lg:w-1/2 animate-fade-in animate-delay-200 animate-fill-both">
-              <img 
-                src="https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-                alt="Restaurant ordering system" 
-                className="rounded-lg shadow-lg"
-              />
+              <RobotPuppyIllustration />
             </div>
           </div>
         </div>
@@ -44,11 +44,10 @@ const Index = () => {
       <Section>
         <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in animate-fill-both">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            What We Do
+            {t("home.whatWeDo.title")}
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            Timboti builds custom AI automation tools. Our first product is a chatbot tailored for restaurants. 
-            It handles customer chats, takes orders, and logs everything into a clean CRM dashboard.
+            {t("home.whatWeDo.description")}
           </p>
         </div>
       </Section>
@@ -58,10 +57,10 @@ const Index = () => {
         <div className="space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4 animate-fade-in animate-fill-both">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Features
+              {t("home.features.title")}
             </h2>
             <p className="text-gray-600 dark:text-gray-400">
-              Designed to make restaurant management easier
+              {t("home.features.subtitle")}
             </p>
           </div>
 
@@ -71,9 +70,9 @@ const Index = () => {
               <div className="h-12 w-12 bg-timboti-red/10 rounded-lg flex items-center justify-center mb-4">
                 <MessageSquare className="h-6 w-6 text-timboti-red" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Smart Chatbot</h3>
+              <h3 className="text-xl font-semibold mb-2">{t("home.features.smartChatbot.title")}</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                AI-powered chatbot that interacts with customers on your website or WhatsApp.
+                {t("home.features.smartChatbot.description")}
               </p>
             </div>
 
@@ -82,9 +81,9 @@ const Index = () => {
               <div className="h-12 w-12 bg-timboti-red/10 rounded-lg flex items-center justify-center mb-4">
                 <Database className="h-6 w-6 text-timboti-red" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">CRM System</h3>
+              <h3 className="text-xl font-semibold mb-2">{t("home.features.crmSystem.title")}</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                All customer orders and conversations organized in one easy-to-use dashboard.
+                {t("home.features.crmSystem.description")}
               </p>
             </div>
 
@@ -93,9 +92,9 @@ const Index = () => {
               <div className="h-12 w-12 bg-timboti-red/10 rounded-lg flex items-center justify-center mb-4">
                 <Workflow className="h-6 w-6 text-timboti-red" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Easy Integration</h3>
+              <h3 className="text-xl font-semibold mb-2">{t("home.features.easyIntegration.title")}</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Simple setup process with guided integration into your existing website and systems.
+                {t("home.features.easyIntegration.description")}
               </p>
             </div>
 
@@ -104,9 +103,9 @@ const Index = () => {
               <div className="h-12 w-12 bg-timboti-red/10 rounded-lg flex items-center justify-center mb-4">
                 <MessagesSquare className="h-6 w-6 text-timboti-red" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Unlimited Conversations</h3>
+              <h3 className="text-xl font-semibold mb-2">{t("home.features.unlimitedConversations.title")}</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                Handle as many customer conversations as you need on our Basic plan.
+                {t("home.features.unlimitedConversations.description")}
               </p>
             </div>
           </div>
@@ -118,13 +117,13 @@ const Index = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-slide-in animate-fill-both">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              Organize All Your Orders in One Place
+              {t("home.crmPreview.title")}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">
-              Our CRM system makes it easy to manage all your restaurant orders. View customer history, track preferences, and manage your menu - all from a single dashboard.
+              {t("home.crmPreview.description")}
             </p>
             <Button asChild className="bg-timboti-red hover:bg-timboti-red/90">
-              <Link to="/pricing">See Plans</Link>
+              <Link to="/pricing">{t("home.crmPreview.cta")}</Link>
             </Button>
           </div>
           <div className="animate-fade-in animate-delay-200 animate-fill-both">
@@ -141,13 +140,13 @@ const Index = () => {
       <Section bgColor="bg-timboti-red">
         <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in animate-fill-both">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-white">
-            Ready to Streamline Your Restaurant?
+            {t("home.cta.title")}
           </h2>
           <p className="text-lg text-white/90">
-            Join hundreds of restaurants using Timboti to handle orders and improve customer service.
+            {t("home.cta.description")}
           </p>
           <Button asChild size="lg" className="bg-white text-timboti-red hover:bg-gray-100">
-            <Link to="/contact">Get Started Today</Link>
+            <Link to="/contact">{t("home.cta.button")}</Link>
           </Button>
         </div>
       </Section>
