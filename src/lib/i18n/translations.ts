@@ -66,6 +66,42 @@ export const translations = {
       construction: "This demo is under construction.",
       constructionEs: "Esta demostración está en construcción."
     },
+    // Thank you page
+    thankYou: {
+      title: "Thank you for your message",
+      description: "We'll get back to you soon.",
+      backToHome: "Back to Home"
+    },
+    // Contact page
+    contact: {
+      title: "Get in Touch",
+      subtitle: "We'd love to hear from you and help transform your restaurant",
+      info: {
+        title: "Contact Information",
+        description: "Have questions? We're here to help you choose the right plan for your restaurant.",
+        email: "Email",
+        phone: "Phone",
+        address: "Address"
+      },
+      form: {
+        title: "Send Us a Message",
+        name: "Name",
+        namePlaceholder: "Your name",
+        email: "Email",
+        emailPlaceholder: "you@example.com",
+        country: "Country",
+        phone: "Phone Number",
+        phonePlaceholder: "Your phone number",
+        message: "Message",
+        messagePlaceholder: "How can we help you?",
+        send: "Send Message"
+      },
+      cta: {
+        title: "Ready to see Timboti in action?",
+        description: "Schedule a demo with our team and see how Timboti can transform your restaurant.",
+        button: "Schedule a Demo"
+      }
+    },
     // Common
     buttons: {
       tryNow: "Try it now",
@@ -136,8 +172,44 @@ export const translations = {
     },
     // Demo placeholders
     demoPlaceholder: {
-      construction: "This demo is under construction.",
+      construction: "Esta demostración está en construcción.",
       constructionEs: "Esta demostración está en construcción."
+    },
+    // Thank you page
+    thankYou: {
+      title: "Gracias por tu mensaje",
+      description: "Nos pondremos en contacto contigo pronto.",
+      backToHome: "Volver al inicio"
+    },
+    // Contact page
+    contact: {
+      title: "Contáctanos",
+      subtitle: "Nos encantaría escucharte y ayudar a transformar tu restaurante",
+      info: {
+        title: "Información de Contacto",
+        description: "¿Tienes preguntas? Estamos aquí para ayudarte a elegir el plan adecuado para tu restaurante.",
+        email: "Correo Electrónico",
+        phone: "Teléfono",
+        address: "Dirección"
+      },
+      form: {
+        title: "Envíanos un Mensaje",
+        name: "Nombre",
+        namePlaceholder: "Tu nombre",
+        email: "Correo Electrónico",
+        emailPlaceholder: "tu@ejemplo.com",
+        country: "País",
+        phone: "Número de Teléfono",
+        phonePlaceholder: "Tu número de teléfono",
+        message: "Mensaje",
+        messagePlaceholder: "¿Cómo podemos ayudarte?",
+        send: "Enviar Mensaje"
+      },
+      cta: {
+        title: "¿Listo para ver Timboti en acción?",
+        description: "Programa una demostración con nuestro equipo y descubre cómo Timboti puede transformar tu restaurante.",
+        button: "Programar una Demostración"
+      }
     },
     // Common
     buttons: {
